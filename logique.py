@@ -1,4 +1,4 @@
-#import RPi.GPIE as GPIO
+import RPi.GPIE as GPIO
 from time import sleep
 
 class logique:
