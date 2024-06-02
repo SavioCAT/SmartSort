@@ -10,35 +10,35 @@ class logique:
         self.GPIO.setup(5, GPIO.OUT)
         self.GPIO.setup(7, GPIO.OUT)
 
-    def pb_plastique(self):
+    def pb_plastique(self) -> None:
         self.GPIO.output(3, GPIO.LOW)
         self.GPIO.output(5, GPIO.LOW)
         self.GPIO.output(7, GPIO.HIGH)
         sleep(3)
         self.GPIO.cleanup()
 
-    def pb_papier(self):
+    def pb_papier(self) -> None:
         self.GPIO.output(3, GPIO.HIGH)
         self.GPIO.output(5, GPIO.LOW)
         self.GPIO.output(7, GPIO.HIGH)
         sleep(3)
         self.GPIO.cleanup()
 
-    def pb_metal(self):
+    def pb_metal(self) -> None:
         self.GPIO.output(3, GPIO.LOW)
         self.GPIO.output(5, GPIO.HIGH)
         self.GPIO.output(7, GPIO.HIGH)
         sleep(3)
         self.GPIO.cleanup()
 
-    def pb_verre(self):
+    def pb_verre(self) -> None:
         self.GPIO.output(3, GPIO.HIGH)
         self.GPIO.output(5, GPIO.HIGH)
         self.GPIO.output(7, GPIO.HIGH)
         sleep(3)
         self.GPIO.cleanup()
 
-    def jeter_dechet(self, code = 5):
+    def jeter_dechet(self, code = 5) -> None:
         if code == 1:
             self.pb_plastique()
         elif code == 2:
