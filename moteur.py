@@ -8,14 +8,14 @@ from machine import Pin, PWM
 ###############################################
 
 #initialisation des pins
-pwm_moteur1 = PWM(Pin(16))
-pwm_moteur2 = PWM(Pin(18))
-pwm_moteur3 = PWM(Pin(20))
-pwm_moteur4 = PWM(Pin(22))
+pwm_moteur1 = PWM(Pin(8))
+pwm_moteur2 = PWM(Pin(9))
+pwm_moteur3 = PWM(Pin(10))
+pwm_moteur4 = PWM(Pin(11))
 
-pin_comm_pi5_bit0 = Pin(13, Pin.IN, Pin.PULL_DOWN)
-pin_comm_pi5_bit1 = Pin(14, Pin.IN, Pin.PULL_DOWN)
-pin_comm_pi5_declancheur = Pin(15, Pin.IN, Pin.PULL_DOWN)
+pin_comm_pi5_declancheur = Pin(13, Pin.IN, Pin.PULL_DOWN)
+pin_comm_pi5_bit0 = Pin(14, Pin.IN, Pin.PULL_DOWN)
+pin_comm_pi5_bit1 = Pin(15, Pin.IN, Pin.PULL_DOWN)
 
 #Initialiser des PWM aux bonnes fréquences
 pwm_moteur1.freq(50)
@@ -48,5 +48,12 @@ def reset_moteur() -> None:
     for i in range(1, 5):
         set_duty(i, 50)
 
-
+set_duty(1, 10)
+sleep(20)
+set_duty(1, 20)
+sleep(20)
+set_duty(1, 30)
+sleep(20)
+set_duty(1, 40)
+sleep(20)
 reset_moteur()
