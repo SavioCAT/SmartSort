@@ -46,14 +46,59 @@ def set_duty(moteur: int, duty: float) -> None:
 
 def reset_moteur() -> None:
     for i in range(1, 5):
-        set_duty(i, 50)
+        set_duty(i, 50.0)
 
-set_duty(1, 10)
-sleep(20)
-set_duty(1, 20)
-sleep(20)
-set_duty(1, 30)
-sleep(20)
-set_duty(1, 40)
-sleep(20)
+
 reset_moteur()
+
+while True:
+    sleep(0.1)
+    if pin_comm_pi5_declancheur.value() == 1:
+        if pin_comm_pi5_bit0.value() == 0 and pin_comm_pi5_bit1.value() == 0:
+            set_duty(1, 100.0)
+            set_duty(2, 0.0)
+            sleep(7)
+            set_duty(3, 100.0)
+            set_duty(4, 0.0)
+            sleep(7)
+            set_duty(3, 50.0)
+            set_duty(4, 50.0)
+            sleep(7)
+            set_duty(1, 50.0)
+            set_duty(2, 50.0)
+        if pin_comm_pi5_bit0.value() == 0 and pin_comm_pi5_bit1.value() == 1:
+            set_duty(1, 100.0)
+            set_duty(2, 0.0)
+            sleep(7)
+            set_duty(3, 0.0)
+            set_duty(4, 100.0)
+            sleep(7)
+            set_duty(3, 50.0)
+            set_duty(4, 50.0)
+            sleep(7)
+            set_duty(1, 50.0)
+            set_duty(2, 50.0)
+        if pin_comm_pi5_bit0.value() == 1 and pin_comm_pi5_bit1.value() == 0:
+            set_duty(1, 0.0)
+            set_duty(2, 100.0)
+            sleep(7)
+            set_duty(3, 100.0)
+            set_duty(4, 0.0)
+            sleep(7)
+            set_duty(3, 50.0)
+            set_duty(4, 50.0)
+            sleep(7)
+            set_duty(1, 50.0)
+            set_duty(2, 50.0)
+        if pin_comm_pi5_bit0.value() == 1 and pin_comm_pi5_bit1.value() == 1:
+            set_duty(1, 0.0)
+            set_duty(2, 100.0)
+            sleep(7)
+            set_duty(3, 0.0)
+            set_duty(4, 100.0)
+            sleep(7)
+            set_duty(3, 50.0)
+            set_duty(4, 50.0)
+            sleep(7)
+            set_duty(1, 50.0)
+            set_duty(2, 50.0)

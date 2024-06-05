@@ -1,7 +1,7 @@
 import RPi.GPIE as GPIO
 from time import sleep
 
-class logique:
+class logique_moteur:
     def __init__(self):
         self.GPIO.setmode(GPIO.BOARD)
         self.GPIO.setwarnings(False)
