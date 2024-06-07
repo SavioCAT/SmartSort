@@ -17,7 +17,7 @@ class photo:
         resized = image.resize(max_size)
         resized.save('./picture/pic.jpg')
 
-        size_crop = (480,480)
+        size_crop = (256,256)
         img = Image.open('./picture/pic.jpg')
         img.thumbnail(size_crop)
         img.save('./picture/pic.jpg')

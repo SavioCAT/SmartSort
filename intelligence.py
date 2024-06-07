@@ -1,7 +1,6 @@
 import cv2
 import keras
 import numpy as np
-from moteur import pilote_moteur
 from time import sleep
 from picture import photo 
 
@@ -36,7 +35,7 @@ class modele_IA:
         	return 3, self.prediction[self.prediction_argmax]
         elif self.predicted_label == 'Verre':
         	return 4, self.prediction[self.prediction_argmax]
-        else
+        else :
             return 5,0
         
 
