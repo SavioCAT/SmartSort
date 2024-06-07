@@ -9,7 +9,7 @@ class modele_IA:
     def __init__(self):
         self.model_path = "./model_v6.h5"
         self.image_path = "./picture/pic.jpg"
-        self.class_name = ['Carton',"Metal','Plastique','Verre']
+        self.class_name = ['Carton','Metal','Plastique','Verre']
         self.pic = photo()
         self.test_model = keras.models.load_model(self.model_path)
 
@@ -29,17 +29,15 @@ class modele_IA:
         
         
         if self.predicted_label == 'Carton':
-        	print("carton")
-        	return 1
+        	return 1, self.prediction[self.prediction_argmax]
         elif self.predicted_label == 'Plastique':
-        	print("plastique")
-        	return 2
+        	return 2, self.prediction[self.prediction_argmax]
         elif self.predicted_label == 'Metal':
-        	print("metal")
-        	return 3
-        else:
-        	print("Verre")
-        	return 4
+        	return 3, self.prediction[self.prediction_argmax]
+        elif self.predicted_label == 'Verre':
+        	return 4, self.prediction[self.prediction_argmax]
+        else
+            return 5,0
         
 
 
