@@ -7,9 +7,9 @@ from picture import photo
 
 class modele_IA:
     def __init__(self):
-        self.model_path = "./model4juin.h5"
+        self.model_path = "./model_v6.h5"
         self.image_path = "./picture/pic.jpg"
-        self.class_name = ['assiette_carton', 'boite_carton', 'bouteille_plastique', 'bouteille_verre', 'brique_carton', 'canette_metal', 'conserve_metal', 'gobelet_carton']
+        self.class_name = ['Carton',"Metal','Plastique','Verre']
         self.pic = photo()
         self.test_model = keras.models.load_model(self.model_path)
 
@@ -27,17 +27,18 @@ class modele_IA:
         print(self.prediction, "proba = ", self.prediction[self.prediction_argmax])
         print(self.predicted_label)
         
-        if self.predicted_label.split("_")[1] == 'carton':
+        
+        if self.predicted_label == 'Carton':
         	print("carton")
         	return 1
-        elif self.predicted_label.split("_")[1] == 'plastique':
+        elif self.predicted_label == 'Plastique':
         	print("plastique")
         	return 2
-        elif self.predicted_label.split("_")[1] == 'metal':
+        elif self.predicted_label == 'Metal':
         	print("metal")
         	return 3
         else:
-        	print("verre")
+        	print("Verre")
         	return 4
         
 
