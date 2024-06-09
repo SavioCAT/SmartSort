@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
-from time import sleep
+from time import sleep, time
+
 
 class ultrason_logique:
     def __init__(self):
