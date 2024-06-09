@@ -15,12 +15,15 @@ def incertain():
                 break
             case 'choix_user_poubelle_2':
                 moteur.jeter_dechet(2)
+
                 break
             case 'choix_user_poubelle_3':
                 moteur.jeter_dechet(3)
+
                 break
             case 'choix_user_poubelle_4':
                 moteur.jeter_dechet(4)
+
                 break
             case _:
                 print('choix invalide')
@@ -40,6 +43,7 @@ if __name__ == "__main__" :
         sleep(0.01)
         match state_statut:
             case 0:
+
                 break
             case 1:
                 break
@@ -51,18 +55,22 @@ if __name__ == "__main__" :
                         if resultat[1] < 0.70:
                             incertain()
                         print("Carton")
+                        state_statut = 0
                     elif resultat[0] == 2:
                         if resultat[1] < 0.70:
                             incertain()
                         print("plastique")
+                        state_statut = 0
                     elif resultat[0] == 3:
                         if resultat[1] < 0.70:
                             incertain()
                         print("metal")
+                        state_statut = 0
                     elif resultat[0] == 4:
                         if resultat[1] < 0.70:
                             incertain()
                         print("Verre")
+                        state_statut = 0
                     else:
                         print("Prédiction inconnue")
                 else:
@@ -70,9 +78,3 @@ if __name__ == "__main__" :
                 break
             case _:
                 break
-
-
-
-
-
-
