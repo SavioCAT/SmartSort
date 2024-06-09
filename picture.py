@@ -3,7 +3,8 @@ from PIL import Image
 from time import sleep
 
 class photo:
-    
+
+    #choqué de fou, cette fonction sert à prendre une photo. :O
     def prendre_photo(self):
         try:
 	        result = subprocess.run(['libcamera-still','--immediate','-o','./picture/pic.jpg'], capture_output=True, text=True, check=True)

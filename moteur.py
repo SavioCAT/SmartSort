@@ -44,13 +44,16 @@ def set_duty(moteur: int, duty: float) -> None:
         print(f"ValueError: {e}")
 
 
+#ramene tous les moteurs à leurs position de reset 90 degres
 def reset_moteur() -> None:
     for i in range(1, 5):
         set_duty(i, 50.0)
 
 
 reset_moteur()
+sleep(2)
 
+#Routine de fonctionnement des moteurs. le controleur attend l'activation du pin 13 puis verifie l'état des pins 14 et 15 pour réagir en focntion.
 while True:
     sleep(0.1)
     if pin_comm_pi5_declancheur.value() == 1:
