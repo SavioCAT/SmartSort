@@ -33,7 +33,7 @@ def incertain():
 if __name__ == "__main__" :
 
     # ['waiting', 'stop', 'running'] Juste pour garder en tete les etats existants
-    state_statut = 0
+    state_statut = 2
 
     ia_mod = modele_IA()
     moteur = logique()
@@ -43,48 +43,54 @@ if __name__ == "__main__" :
 
     while True:
         sleep(0.01)
-        match state_statut:
-            case 0:
-                com_interface.attente_objet()
-                break
-            case 1:
-                break
-            case 2:
-                resultat = ia_mod.lecture_img()
-                com_interface.traitement_objet_en_cours()
-                if resultat is not None:
-                    if resultat[0] == 1:
-                        if resultat[1] < 0.70:
-                            incertain()
+        while True:
+            match state_statut:
+                case 0:
+                    com_interface.attente_objet()
+                    sleep(100)
+                    break
+                case 1:
+                    break
+                case 2:
+                    resultat = ia_mod.lecture_img()
+                    com_interface.traitement_objet_en_cours()
+                    if resultat is not None:
+                        if resultat[0] == 1:
+                            if resultat[1] < 0.99: # PENSER A MODIFIER
+                                incertain()
+                            else:
+                                com_interface.ajout_poubelle_1()
+                                sleep(0.3)
+                            print("Carton")
+                            state_statut = 0
+                        elif resultat[0] == 2:
+                            if resultat[1] < 0.99:
+                                incertain()
+                            else:
+                                com_interface.ajout_poubelle_2()
+                                sleep(0.3)
+                            print("plastique")
+                            state_statut = 0
+                        elif resultat[0] == 3:
+                            if resultat[1] < 0.99:
+                                incertain()
+                            else:
+                                com_interface.ajout_poubelle_3()
+                                sleep(0.3)
+                            print("metal")
+                            state_statut = 0
+                        elif resultat[0] == 4:
+                            if resultat[1] < 0.99:
+                                incertain()
+                            else:
+                                com_interface.ajout_poubelle_4()
+                                sleep(0.3)
+                            print("Verre")
+                            state_statut = 0
                         else:
-                            com_interface.ajout_poubelle_1()
-                        print("Carton")
-                        state_statut = 0
-                    elif resultat[0] == 2:
-                        if resultat[1] < 0.70:
-                            incertain()
-                        else:
-                            com_interface.ajout_poubelle_2()
-                        print("plastique")
-                        state_statut = 0
-                    elif resultat[0] == 3:
-                        if resultat[1] < 0.70:
-                            incertain()
-                        else:
-                            com_interface.ajout_poubelle_3()
-                        print("metal")
-                        state_statut = 0
-                    elif resultat[0] == 4:
-                        if resultat[1] < 0.70:
-                            incertain()
-                        else:
-                            com_interface.ajout_poubelle_4()
-                        print("Verre")
-                        state_statut = 0
+                            print("Prédiction inconnue")
                     else:
-                        print("Prédiction inconnue")
-                else:
-                    print("Impossible de faire une prédiction")
-                break
-            case _:
-                break
+                        print("Impossible de faire une prédiction")
+                    break
+                case _:
+                    break
