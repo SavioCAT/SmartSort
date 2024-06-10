@@ -2,41 +2,42 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 class logique:
+    
     def __init__(self):
-        self.GPIO.setmode(GPIO.BOARD)
-        self.GPIO.setwarnings(False)
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setwarnings(False)
 
-        self.GPIO.setup(3, GPIO.OUT)
-        self.GPIO.setup(5, GPIO.OUT)
-        self.GPIO.setup(7, GPIO.OUT)
+        GPIO.setup(3, GPIO.OUT)
+        GPIO.setup(5, GPIO.OUT)
+        GPIO.setup(7, GPIO.OUT)
 
     def pb_plastique(self) -> None:
-        self.GPIO.output(3, GPIO.LOW)
-        self.GPIO.output(5, GPIO.LOW)
-        self.GPIO.output(7, GPIO.HIGH)
+        GPIO.output(3, GPIO.LOW)
+        GPIO.output(5, GPIO.LOW)
+        GPIO.output(7, GPIO.HIGH)
         sleep(3)
-        self.GPIO.cleanup()
+        GPIO.cleanup()
 
     def pb_papier(self) -> None:
-        self.GPIO.output(3, GPIO.HIGH)
-        self.GPIO.output(5, GPIO.LOW)
-        self.GPIO.output(7, GPIO.HIGH)
+        GPIO.output(3, GPIO.HIGH)
+        GPIO.output(5, GPIO.LOW)
+        GPIO.output(7, GPIO.HIGH)
         sleep(3)
-        self.GPIO.cleanup()
+        GPIO.cleanup()
 
     def pb_metal(self) -> None:
-        self.GPIO.output(3, GPIO.LOW)
-        self.GPIO.output(5, GPIO.HIGH)
-        self.GPIO.output(7, GPIO.HIGH)
+        GPIO.output(3, GPIO.LOW)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(7, GPIO.HIGH)
         sleep(3)
-        self.GPIO.cleanup()
+        GPIO.cleanup()
 
     def pb_verre(self) -> None:
-        self.GPIO.output(3, GPIO.HIGH)
-        self.GPIO.output(5, GPIO.HIGH)
-        self.GPIO.output(7, GPIO.HIGH)
+        GPIO.output(3, GPIO.HIGH)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(7, GPIO.HIGH)
         sleep(3)
-        self.GPIO.cleanup()
+        GPIO.cleanup()
 
     def jeter_dechet(self, code = 5) -> None:
         if code == 1:
