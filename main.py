@@ -56,36 +56,32 @@ if __name__ == "__main__" :
                     com_interface.traitement_objet_en_cours()
                     if resultat is not None:
                         if resultat[0] == 1:
-                            if resultat[1] < 0.99: # PENSER A MODIFIER
+                            if resultat[1] < 0.3: # PENSER A MODIFIER
                                 incertain()
                             else:
                                 com_interface.ajout_poubelle_1()
                                 sleep(0.3)
-                            print("Carton")
                             state_statut = 0
                         elif resultat[0] == 2:
-                            if resultat[1] < 0.99:
+                            if resultat[1] < 0.3:
                                 incertain()
                             else:
                                 com_interface.ajout_poubelle_2()
                                 sleep(0.3)
-                            print("plastique")
                             state_statut = 0
                         elif resultat[0] == 3:
-                            if resultat[1] < 0.99:
+                            if resultat[1] < 0.3:
                                 incertain()
                             else:
                                 com_interface.ajout_poubelle_3()
                                 sleep(0.3)
-                            print("metal")
                             state_statut = 0
                         elif resultat[0] == 4:
-                            if resultat[1] < 0.99:
+                            if resultat[1] < 0.3:
                                 incertain()
                             else:
                                 com_interface.ajout_poubelle_4()
                                 sleep(0.3)
-                            print("Verre")
                             state_statut = 0
                         else:
                             print("Prédiction inconnue")

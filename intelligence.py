@@ -6,7 +6,7 @@ from picture import photo
 
 class modele_IA:
     def __init__(self):
-        self.model_path = "./model_v6.h5"
+        self.model_path = "./model_vfinal.h5"
         self.image_path = "./picture/pic.jpg"
         self.class_name = ['Carton','Metal','Plastique','Verre']
         self.pic = photo()
